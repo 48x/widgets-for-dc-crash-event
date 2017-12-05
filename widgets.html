@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Проверяем, работают ли виджеты</title>
+
+    <script content="text/javascript" src="static/js/crypto-js/index.js"></script>
+    <script content="text/javascript" src="static/js/crypto-js/core.js"></script>
+    <script content="text/javascript" src="static/js/crypto-js/md5.js"></script>
+    <script content="text/javascript" src="static/js/main.js"></script>
+    <script content="text/javascript" src="https://test.ok.ru/connect.js"></script>
+    <link rel="stylesheet" type="text/css" href="static/css/main.css"/>
+</head>
+
+<body>
+    <hr>
+    <h3 class="block-title">Виджет публикаци</h3>
+    <hr>
+    <table width="800px">
+        <tr>
+            <td class="param-name">
+                <label>Application ID: </label>
+            </td>
+            <td class="param-value">
+                <input id="app-id" value="1250266112"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="param-name">
+                <label>Application Secret Key: </label>
+            </td>
+            <td class="param-value">
+                <input id="app-secret-key" value="4B53ECC2D15BE00496F079B5"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="param-name">
+                <label>Attachment: </label>
+            </td>
+            <td class="param-value">
+                <textarea id="attachment-data" rows="10">
+                {
+                    "media": [
+                        {
+                            "type": "text",
+                            "text": "Проверка работы виджета публикации"
+                        },
+                        {
+                            "type": "link",
+                            "url": "https://mail.ru/"
+                        }
+                    ]
+                }
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td class="param-name">
+                <label>Return url: </label>
+            </td>
+            <td class="param-value">
+                <input id="return-url" value="">
+            </td>
+        </tr>
+        <tr>
+            <td class="param-name">
+                <label>Group id: </label>
+            </td>
+            <td class="param-value">
+                <input id="group-id" value="">
+            </td>
+        </tr>
+    </table>
+    <button type="submit" id="post-data" onClick="postData()">Сделать пост</button><br/>
+    <hr>
+    <h3 class="block-title">Кнопка "Класс" / "Поделиться"</h3>
+    <hr>
+    <table width="800px">
+        <tr>
+            <td class="param-name">
+                <label>Widgets host </label>
+            </td>
+            <td class="param-value">
+                <input id="widgets-host" value="https://connect.ok.ru/"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="param-name">
+                <label>URL: </label>
+            </td>
+            <td class="param-value">
+                <input id="share-url" value="https://apiok.ru/"/>
+            </td>
+        </tr>
+    </table>
+    <button type="submit" id="widget" onClick="renewLikeWidget()">Получить кнопку</button>
+    <div id="ok_shareWidget"></div>
+    <hr>
+    <h3 class="block-title">Виджет Oauth-авторизации</h3>
+    <hr>
+        <table width="800px">
+        <tr>
+            <td class="param-name">
+                <label>Application ID: </label>
+            </td>
+            <td class="param-value">
+                <input id="app-id-oauth" value="1250266112"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="param-name">
+                <label>Permissions: </label>
+            </td>
+            <td class="param-value">
+                <input id="oauth-permissions" value="VALUABLE_ACCESS;PHOTO_CONTENT"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="param-name">
+                <label>Redirect URI: </label>
+            </td>
+            <td class="param-value">
+                <input id="oauth-redirect-uri" value="https://oauth.mycdn.me/blank.html"/>
+            </td>
+        </tr>
+    </table>
+    <button type="submit" id="oauth" onClick="oauth()">Авторизоваться</button>
+    <hr>
+    <h3 class="block-title">Виджет группы</h3>
+    <hr>
+    <table width="800px">
+        <tr>
+            <td class="param-name">
+                <label>Group ID</label>
+            </td>
+            <td class="param-value">
+                <input id="group-widget-group-id" value="53038939046008"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="param-name">
+                <label>Height</label>
+            </td>
+            <td class="param-value">
+                <input id="group-widget-height" value="285"/>
+            </td>
+        </tr>
+        <tr>
+            <td class="param-name">
+                <label>Width</label>
+            </td>
+            <td class="param-value">
+                <input id="group-widget-width" value="360"/>
+            </td>
+        </tr>
+    </table>
+    <button type="submit" id="group-widget" onClick="getGroupWidget()">Получить виджет группы</button>
+    <div id="ok_group_widget"></div>
+</body>
+</html>

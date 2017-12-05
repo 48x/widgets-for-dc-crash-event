@@ -1,0 +1,22 @@
+.param-name {
+    width: 20%;
+}
+.param-value {
+    width: 60%;
+}
+
+.param-value > textarea, .param-value > input {
+    width: 100%;
+}
+.param-value > textarea {
+    resize: vertical;
+}
+
+.hr {
+    color: silver;
+}
+
+.block-title {
+    text-align: center;
+    color: #5f5f5f;
+}
