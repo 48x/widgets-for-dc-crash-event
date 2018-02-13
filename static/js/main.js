@@ -7,6 +7,13 @@ function postData() {
     window.open(buildUrl(appId, attachmentToSend, appSecretKey, returnUrl, groupId));
 }
 
+function suggest() {
+    var appId = document.getElementById("app-id-suggest").value.trim();
+    var widgetType = document.getElementById("app-widget-type").value.trim();
+    var appSecretKey = document.getElementById("app-secret-key-suggest").value.trim();
+    window.open(buildSuggestUrl(appId, widgetType, appSecretKey));
+}
+
 function buildUrl(appId, attachment, secretKey, returnUrl, groupId) {
     var urlToPost = "https://connect.ok.ru/dk?st.cmd=WidgetMediatopicPost" +
                     "&st.app=" + appId +
@@ -20,6 +27,16 @@ function buildUrl(appId, attachment, secretKey, returnUrl, groupId) {
     if (groupId && groupId.length > 0) {
         urlToPost += "&st.groupId=" + groupId;
     }
+    console.log(urlToPost)
+    return urlToPost;
+}
+
+function buildSuggestUrl(appId, widgetType, secretKey) {
+    var urlToPost = "https://connect.ok.ru/dk?st.cmd=" + widgetType +
+                    "&st.app=" + appId +
+                    "&st.signature=" + CryptoJS.MD5(secretKey)
+    ;
+
     console.log(urlToPost)
     return urlToPost;
 }
