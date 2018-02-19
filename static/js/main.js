@@ -15,7 +15,8 @@ function suggest() {
 }
 
 function buildUrl(appId, attachment, secretKey, returnUrl, groupId) {
-    var urlToPost = "https://connect.ok.ru/dk?st.cmd=WidgetMediatopicPost" +
+    var urlToPost = document.getElementById("widgets-main-host").value.trim() +
+                    "dk?st.cmd=WidgetMediatopicPost" +
                     "&st.app=" + appId +
                     "&st.attachment=" + encodeURIComponent(attachment) +
                     "&st.signature=" + getSignature(attachment, secretKey, returnUrl)
@@ -32,7 +33,8 @@ function buildUrl(appId, attachment, secretKey, returnUrl, groupId) {
 }
 
 function buildSuggestUrl(appId, widgetType, secretKey) {
-    var urlToPost = "https://connect.ok.ru/dk?st.cmd=" + widgetType +
+    var urlToPost = document.getElementById("widgets-main-host").value.trim() +
+                    "dk?st.cmd=" + widgetType +
                     "&st.app=" + appId +
                     "&st.signature=" + CryptoJS.MD5(secretKey)
     ;
