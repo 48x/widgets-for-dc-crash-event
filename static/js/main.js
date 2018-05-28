@@ -96,7 +96,7 @@ function getGroupWidget() {
     var groupId = document.getElementById("group-widget-group-id").value.trim();
     var widgetHeight = document.getElementById("group-widget-height").value.trim();
     var widgetWidth = document.getElementById("group-widget-width").value.trim();
-    var widgetsHost = document.getElementById("widgets-host").value.trim();
+    var widgetsHost = document.getElementById("widgets-main-host").value.trim();
     OK.CONNECT.hostName = widgetsHost;
     OK.CONNECT.insertGroupWidget("ok_group_widget", groupId, '{"width":' + widgetWidth + ', "height":' + widgetHeight + '}');
 }
