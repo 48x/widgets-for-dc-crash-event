@@ -84,7 +84,8 @@ function oauth() {
 function buildOauthUrl(appId, scope, redirectUri) {
     var widgetsHost = document.getElementById("widgets-main-host").value.trim();
     var oauthUrl = widgetsHost +
-                    "&client_id=" + appId +
+                    "oauth/authorize?" +
+                    "client_id=" + appId +
                     "&scope=" + scope +
                     "&response_type=" + "code" +
                     "&redirect_uri=" + redirectUri
