@@ -82,7 +82,7 @@ function oauth() {
 }
 
 function buildOauthUrl(appId, scope, redirectUri) {
-    var oauthUrl = "https://connect.ok.ru/oauth/authorize?" +
+    var oauthUrl = document.getElementById("widgets-host").value.trim() +
                     "&client_id=" + appId +
                     "&scope=" + scope +
                     "&response_type=" + "code" +
