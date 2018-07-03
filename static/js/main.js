@@ -78,7 +78,7 @@ function oauth() {
     var appId = document.getElementById("app-id-oauth").value.trim();
     var scope = document.getElementById("oauth-permissions").value.trim();
     var redirectUri = document.getElementById("oauth-redirect-uri").value.trim();
-    window.open(buildOauthUrl(appId, scope, redirectUri), "oauth", ", "width=640,height=480");
+    window.open(buildOauthUrl(appId, scope, redirectUri), "oauth", "width=640,height=480");
 }
 
 function buildOauthUrl(appId, scope, redirectUri) {
