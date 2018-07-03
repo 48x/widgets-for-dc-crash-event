@@ -68,7 +68,7 @@ function getWidgetAsFrame() {
 
 function renewLikeWidget() {
     document.getElementById("ok_shareWidget").innerHTML = ""
-    var widgetsHost = document.getElementById("widgets-host").value.trim();
+    var widgetsHost = document.getElementById("widgets-host-main").value.trim();
     var urlToShare = document.getElementById("share-url").value.trim();
     OK.CONNECT.hostName = widgetsHost;
     OK.CONNECT.insertShareWidget("ok_shareWidget", urlToShare, "{width:150  ,height:50,st:'oval',sz:30,ck:1}");
@@ -82,7 +82,7 @@ function oauth() {
 }
 
 function buildOauthUrl(appId, scope, redirectUri) {
-    var oauthUrl = document.getElementById("widgets-host").value.trim() +
+    var oauthUrl = document.getElementById("widgets-host-main").value.trim() +
                     "&client_id=" + appId +
                     "&scope=" + scope +
                     "&response_type=" + "code" +
