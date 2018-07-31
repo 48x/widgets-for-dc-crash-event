@@ -8,12 +8,13 @@ function postData() {
     var height = document.getElementById("publish-height").value.trim();
     if (width === "" || height === "") {
         window.open(buildUrl(appId, attachmentToSend, appSecretKey, returnUrl, groupId));
+    } else {
+        window.open(
+            buildUrl(appId, attachmentToSend, appSecretKey, returnUrl, groupId),
+            "publish-window",
+            "width="+parseInt(width)+",height="+parseInt(height)
+        );
     }
-    window.open(
-        buildUrl(appId, attachmentToSend, appSecretKey, returnUrl, groupId),
-        "publish-window",
-        "width="+parseInt(width)+",height="+parseInt(height)
-    );
 }
 
 function suggest() {
@@ -24,12 +25,13 @@ function suggest() {
     var height = document.getElementById("suggest-height").value.trim();
     if (width === "" || height === "") {
         window.open(buildSuggestUrl(appId, widgetType, appSecretKey));
+    } else {
+        window.open(
+            buildSuggestUrl(appId, widgetType, appSecretKey),
+            "suggest-window",
+            "width="+parseInt(width)+",height="+parseInt(height)
+        )
     }
-    window.open(
-        buildSuggestUrl(appId, widgetType, appSecretKey),
-        "suggest-window",
-        "width="+parseInt(width)+",height="+parseInt(height)
-    )
 }
 
 function buildUrl(appId, attachment, secretKey, returnUrl, groupId) {
