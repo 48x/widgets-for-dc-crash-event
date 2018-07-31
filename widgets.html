@@ -13,179 +13,382 @@
 </head>
 
 <body>
-    <table width="800px">
-        <tr>
-            <td class="param-name">
-                <label>Widgets host: </label>
-            </td>
-            <td class="param-value">
-                <input id="widgets-main-host" value="https://connect.ok.ru/"/>
-            </td>
-        </tr>
-    </table>
-    <hr>
-    <h3 class="block-title">Виджет публикации</h3>
-    <hr>
-    <table width="800px">
-        <tr>
-            <td class="param-name">
-                <label>Application ID: </label>
-            </td>
-            <td class="param-value">
-                <input id="app-id" value="1250266112"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="param-name">
-                <label>Application Secret Key: </label>
-            </td>
-            <td class="param-value">
-                <input id="app-secret-key" value="4B53ECC2D15BE00496F079B5"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="param-name">
-                <label>Attachment: </label>
-            </td>
-            <td class="param-value">
-                <textarea id="attachment-data" rows="10">
-                {
-                    "media": [
-                        {
-                            "type": "text",
-                            "text": "Проверка работы виджета публикации"
-                        },
-                        {
-                            "type": "link",
-                            "url": "https://mail.ru/"
-                        }
-                    ]
-                }
-                </textarea>
-            </td>
-        </tr>
-        <tr>
-            <td class="param-name">
-                <label>Return url: </label>
-            </td>
-            <td class="param-value">
-                <input id="return-url" value="">
-            </td>
-        </tr>
-        <tr>
-            <td class="param-name">
-                <label>Group id: </label>
-            </td>
-            <td class="param-value">
-                <input id="group-id" value="">
-            </td>
-        </tr>
-    </table>
-    <button type="submit" id="post-data" onClick="postData()">Сделать пост</button><br/>
-    <h3 class="block-title">Виджет инвайта</h3>
-    <hr>
-    <table width="800px">
-        <tr>
-            <td class="param-name">
-                <label>Widget type: </label>
-            </td>
-            <td class="param-value">
-                <input id="app-widget-type" value="WidgetInvite"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="param-name">
-                <label>Application ID: </label>
-            </td>
-            <td class="param-value">
-                <input id="app-id-suggest" value="1250266112"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="param-name">
-                <label>Application Secret Key: </label>
-            </td>
-            <td class="param-value">
-                <input id="app-secret-key-suggest" value="4B53ECC2D15BE00496F079B5"/>
-            </td>
-        </tr>
-    </table>
-    <button type="submit" id="suggest-invite" onClick="suggest()">Suggest / Invite</button><br/>
-    <hr>
-    <h3 class="block-title">Кнопка "Класс" / "Поделиться"</h3>
-    <hr>
-    <table width="800px">
-        <tr>
-            <td class="param-name">
-                <label>URL: </label>
-            </td>
-            <td class="param-value">
-                <input id="share-url" value="https://apiok.ru/"/>
-            </td>
-        </tr>
-    </table>
-    <button type="submit" id="widget" onClick="renewLikeWidget()">Получить кнопку</button>
-    <div id="ok_shareWidget"></div>
-    <hr>
-    <h3 class="block-title">Виджет Oauth-авторизации</h3>
-    <hr>
-        <table width="800px">
-        <tr>
-            <td class="param-name">
-                <label>Application ID: </label>
-            </td>
-            <td class="param-value">
-                <input id="app-id-oauth" value="1250266112"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="param-name">
-                <label>Permissions: </label>
-            </td>
-            <td class="param-value">
-                <input id="oauth-permissions" value="VALUABLE_ACCESS;PHOTO_CONTENT"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="param-name">
-                <label>Redirect URI: </label>
-            </td>
-            <td class="param-value">
-                <input id="oauth-redirect-uri" value="https://oauth.mycdn.me/blank.html"/>
-            </td>
-        </tr>
-    </table>
-    <button type="submit" id="oauth" onClick="oauth()">Авторизоваться</button>
-    <hr>
-    <h3 class="block-title">Виджет группы</h3>
-    <hr>
-    <table width="800px">
-        <tr>
-            <td class="param-name">
-                <label>Group ID</label>
-            </td>
-            <td class="param-value">
-                <input id="group-widget-group-id" value="53038939046008"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="param-name">
-                <label>Height</label>
-            </td>
-            <td class="param-value">
-                <input id="group-widget-height" value="285"/>
-            </td>
-        </tr>
-        <tr>
-            <td class="param-name">
-                <label>Width</label>
-            </td>
-            <td class="param-value">
-                <input id="group-widget-width" value="360"/>
-            </td>
-        </tr>
-    </table>
-    <button type="submit" id="group-widget" onClick="getGroupWidget()">Получить виджет группы</button>
-    <div id="ok_group_widget"></div>
+    <div class="section">
+        <div class="main-params">
+            <div class="param">
+                <span class="param-name">
+                    Widgets host:
+                </span>
+                <span class="param-value">
+                    <input id="widgets-main-host" value="https://connect.ok.ru/"/>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="linebreak"></div>
+    <div class="section-title">Виджет публикации</div>
+    <div class="linebreak"></div>
+
+    <div class="section">
+        <div class="main-params">
+            <div class="param">
+                <div class="param-name">
+                    Application ID:
+                </div>
+                <div class="param-value">
+                    <input id="app-id" value="1250266112"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Application Secret Key:
+                </div>
+                <div class="param-value">
+                    <input id="app-secret-key" value="4B53ECC2D15BE00496F079B5"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Attachment:
+                </div>
+                <div class="param-value">
+                    <textarea id="attachment-data" rows="10">
+                    {
+                        "media": [
+                            {
+                                "type": "text",
+                                "text": "Проверка работы виджета публикации"
+                            },
+                            {
+                                "type": "link",
+                                "url": "https://mail.ru/"
+                            }
+                        ]
+                    }
+                    </textarea>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Return url:
+                </div>
+                <div class="param-value">
+                    <input id="return-url" value="">
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Group id:
+                </div>
+                <div class="param-value">
+                    <input id="group-id" value="">
+                </div>
+            </div>
+        </div>
+        <div class="additional-params">
+            <div class="param">
+                <div class="param-name">
+                    Width:
+                </div>
+                <div class="param-value">
+                    <input id="publish-width" value="">
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Height:
+                </div>
+                <div class="param-value">
+                    <input id="publish-height" value="">
+                </div>
+            </div>
+            <div class="param-boolean">
+                <div class="param-name">
+                    <input type="checkbox" id="publish-st.popup">st.popup
+                </div>
+            </div>
+            <div class="param-boolean">
+                <div class="param-name">
+                    <input type="checkbox" id="publish-st.silent">st.silent
+                </div>
+            </div>
+            <div class="param-boolean">
+                <div class="param-name">
+                    <input type="checkbox" id="publish-st.utext">st.utext
+                </div>
+            </div>
+            <div class="param-boolean">
+                <div class="param-name">
+                    <input type="checkbox" id="publish-st.nohead">st.nohead
+                </div>
+            </div>
+            <button type="submit" id="post-data" onClick="postData()">Сделать пост</button><br/>
+        </div>
+    </div>
+
+    <div class="linebreak"></div>
+    <div class="section-title">Виджет инвайта</div>
+    <div class="linebreak"></div>
+
+    <div class="section">
+        <div class="main-params">
+            <div class="param">
+                <div class="param-name">
+                    Widget type:
+                </div>
+                <div class="param-value">
+                    <select id="app-widget-type">
+                        <option>WidgetInvite</option>
+                        <option>WidgetSuggest</option>
+                    </select>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Application ID:
+                </div>
+                <div class="param-value">
+                    <input id="app-id-suggest" value="1250266112"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    <label>Application Secret Key: </label>
+                </div>
+                <div class="param-value">
+                    <input id="app-secret-key-suggest" value="4B53ECC2D15BE00496F079B5"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    <label>Target users: </label>
+                </div>
+                <div class="param-value">
+                    <input id="suggest-target" value=""/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    <label>Autoselect: </label>
+                </div>
+                <div class="param-value">
+                    <input id="suggest-autoselect" value=""/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    <label>Comment: </label>
+                </div>
+                <div class="param-value">
+                    <input id="suggest-comment" value=""/>
+                </div>
+            </div>
+        </div>
+        <div class="additional-params">
+
+            <div class="param">
+                <div class="param-name">
+                    <label>Custom args: </label>
+                </div>
+                <div class="param-value">
+                    <input id="suggest-custom-args" value=""/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    <label>Width: </label>
+                </div>
+                <div class="param-value">
+                    <input id="suggest-width" value=""/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    <label>Height: </label>
+                </div>
+                <div class="param-value">
+                    <input id="suggest-height" value=""/>
+                </div>
+            </div>
+            <div class="param-boolean">
+                <div class="param-name">
+                    <input type="checkbox" title="st.popup">st.popup
+                </div>
+            </div>
+            <div class="param-boolean">
+                <div class="param-name">
+                    <input type="checkbox" title="st.target_only">st.target_only
+                </div>
+            </div>
+            <button type="submit" id="suggest-invite" onClick="suggest()">Suggest / Invite</button><br/>
+        </div>
+    </div>
+
+    <div class="linebreak"></div>
+    <div class="section-title">Кнопка "Класс" / "Поделиться"</div>
+    <div class="linebreak"></div>
+
+    <div class="section">
+        <div class="main-params">
+            <div class="param">
+                <div class="param-name">
+                    URL:
+                </div>
+                <div class="param-value">
+                    <input id="share-url" value="https://apiok.ru/"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    st.imageUrl:
+                </div>
+                <div class="param-value">
+                    <input id="share-image-url" value=""/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    st.title:
+                </div>
+                <div class="param-value">
+                    <input id="share-title" value=""/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    st.description:
+                </div>
+                <div class="param-value">
+                    <input id="share-description" value=""/>
+                </div>
+            </div>
+        </div>
+        <div class="additional-params">
+        <button type="submit" id="widget-share" onClick="renewLikeWidget()">Получить кнопку</button>
+        <button type="submit" id="widget-share-no-button" onClick="renewLikeWidget()">Класс без кнопки</button>
+        <div id="ok_shareWidget"></div>
+        </div>
+    </div>
+
+    <div class="linebreak"></div>
+    <div class="section-title">Виджет Oauth-авторизации</div>
+    <div class="linebreak"></div>
+
+    <div class="section">
+        <div class="main-params">
+            <div class="param">
+                <div class="param-name">
+                    Application ID:
+                </div>
+                <div class="param-value">
+                    <input id="app-id-oauth" value="1250266112"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Permissions:
+                </div>
+                <div class="param-value">
+                    <input id="oauth-permissions" value="VALUABLE_ACCESS;PHOTO_CONTENT"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Redirect URI:
+                </div>
+                <div class="param-value">
+                    <input id="oauth-redirect-uri" value="https://oauth.mycdn.me/blank.html"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Redirect URI:
+                </div>
+                <div class="param-value">
+                    <select id="oauth-layout">
+                        <option>w</option>
+                        <option>m</option>
+                        <option>tv</option>
+                        <option>a</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="additional-params">
+            <button type="submit" id="oauth" onClick="oauth()">Авторизоваться</button>
+        </div>
+    </div>
+
+    <div class="linebreak"></div>
+    <div class="section-title">Виджет группы</div>
+    <div class="linebreak"></div>
+
+    <div class="section">
+        <div class="main-params">
+            <div class="param">
+                <div class="param-name">
+                    Group ID:
+                </div>
+                <div class="param-value">
+                    <input id="group-widget-group-id" value="53038939046008"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Height:
+                </div>
+                <div class="param-value">
+                    <input id="group-widget-height" value="285"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Width:
+                </div>
+                <div class="param-value">
+                    <input id="group-widget-width" value="360"/>
+                </div>
+            </div>
+        </div>
+        <div class="additional-params">
+            <button type="submit" id="group-widget" onClick="getGroupWidget()">Получить виджет группы</button>
+            <div id="ok_group_widget"></div>
+        </div>
+    </div>
+
+    <div class="linebreak"></div>
+    <div class="section-title">Виджет контента</div>
+    <div class="linebreak"></div>
+
+    <div class="section">
+        <div class="main-params">
+            <div class="param">
+                <div class="param-name">
+                    Content URL:
+                </div>
+                <div class="param-value">
+                    <input id="content-widget-content-url" value="https://ok.ru/gifkach/album/52613857018017/860432430241"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Width:
+                </div>
+                <div class="param-value">
+                    <input id="content-widget-width" value="600"/>
+                </div>
+            </div>
+            <div class="boolean-param">
+                <div class="param-name">
+                    <input type="checkbox" title="st.target_only">st.target_only
+                </div>
+            </div>
+        </div>
+        <div class="additional-params">
+            <button type="submit" id="content-widget" onClick="getGroupWidget()">Получить виджет контента</button>
+            <div id="ok_content_widget" style="border: 0; padding: 0; margin: 0 auto; max-width: 100%;"></div>
+        </div>
+    </div>
 </body>
 </html>

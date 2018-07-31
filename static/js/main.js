@@ -4,14 +4,32 @@ function postData() {
     var appSecretKey = document.getElementById("app-secret-key").value.trim();
     var returnUrl = document.getElementById("return-url").value.trim()
     var groupId = document.getElementById("group-id").value.trim()
-    window.open(buildUrl(appId, attachmentToSend, appSecretKey, returnUrl, groupId));
+    var width = document.getElementById("publish-width").value.trim();
+    var height = document.getElementById("publish-height").value.trim();
+    if (width === "" || height === "") {
+        window.open(buildUrl(appId, attachmentToSend, appSecretKey, returnUrl, groupId));
+    }
+    window.open(
+        buildUrl(appId, attachmentToSend, appSecretKey, returnUrl, groupId),
+        "publish-window",
+        "width="+parseInt(width)+",height="+parseInt(height)
+    );
 }
 
 function suggest() {
     var appId = document.getElementById("app-id-suggest").value.trim();
     var widgetType = document.getElementById("app-widget-type").value.trim();
     var appSecretKey = document.getElementById("app-secret-key-suggest").value.trim();
-    window.open(buildSuggestUrl(appId, widgetType, appSecretKey));
+    var width = document.getElementById("suggest-width").value.trim();
+    var height = document.getElementById("suggest-height").value.trim();
+    if (width === "" || height === "") {
+        window.open(buildSuggestUrl(appId, widgetType, appSecretKey));
+    }
+    window.open(
+        buildSuggestUrl(appId, widgetType, appSecretKey),
+        "suggest-window",
+        "width="+parseInt(width)+",height="+parseInt(height)
+    )
 }
 
 function buildUrl(appId, attachment, secretKey, returnUrl, groupId) {
@@ -27,6 +45,22 @@ function buildUrl(appId, attachment, secretKey, returnUrl, groupId) {
 
     if (groupId && groupId.length > 0) {
         urlToPost += "&st.groupId=" + groupId;
+    }
+
+    if (document.getElementById("publish-st.popup").checked) {
+        urlToPost += "&st.popup=1"
+    }
+
+    if (document.getElementById("publish-st.silent").checked) {
+        urlToPost += "&st.silent=1"
+    }
+
+    if (document.getElementById("publish-st.utext").checked) {
+        urlToPost += "&st.utext=1"
+    }
+
+    if (document.getElementById("publish-st.nohead").checked) {
+        urlToPost += "&st.nohead=1"
     }
     console.log(urlToPost)
     return urlToPost;
