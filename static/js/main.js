@@ -179,15 +179,28 @@ function oauth() {
     var appId = document.getElementById("app-id-oauth").value.trim();
     var scope = document.getElementById("oauth-permissions").value.trim();
     var redirectUri = document.getElementById("oauth-redirect-uri").value.trim();
-    window.open(buildOauthUrl(appId, scope, redirectUri), "oauth", "width=640,height=480");
+    var layout = document.getElementById("oauth-layout").value.trim();
+
+    var width = document.getElementById("oauth-width").value.trim();
+    var height = document.getElementById("oauth-height").value.trim();
+    if (width === "" || height === "") {
+        window.open(buildOauthUrl(appId, scope, redirectUri, layout));
+    } else {
+        window.open(
+            buildOauthUrl(appId, scope, redirectUri, layout),
+            "oauth-window",
+            "width="+parseInt(width)+",height="+parseInt(height)
+        );
+    }
 }
 
-function buildOauthUrl(appId, scope, redirectUri) {
+function buildOauthUrl(appId, scope, redirectUri, layout) {
     var widgetsHost = document.getElementById("widgets-main-host").value.trim();
     var oauthUrl = widgetsHost +
                     "oauth/authorize?" +
                     "client_id=" + appId +
                     "&scope=" + scope +
+                    "&layout=" + layout +
                     "&response_type=" + "code" +
                     "&redirect_uri=" + redirectUri
     ;
