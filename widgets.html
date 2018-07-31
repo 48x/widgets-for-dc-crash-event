@@ -128,7 +128,7 @@
     </div>
 
     <div class="linebreak"></div>
-    <div class="section-title">Виджет инвайта</div>
+    <div class="section-title">Виджет инвайта / саджеста</div>
     <div class="linebreak"></div>
 
     <div class="section">
@@ -411,14 +411,17 @@
                     <input id="content-widget-width" value="600"/>
                 </div>
             </div>
-            <div class="boolean-param">
+            <div class="param">
                 <div class="param-name">
-                    <input type="checkbox" title="st.target_only">st.target_only
+                    Width:
+                </div>
+                <div class="param-value">
+                    <input id="content-widget-height" value="600"/>
                 </div>
             </div>
         </div>
         <div class="additional-params">
-            <button type="submit" id="content-widget" onClick="getGroupWidget()">Получить виджет контента</button>
+            <button type="submit" id="content-widget" onClick="getContentWidget()">Получить виджет контента</button>
             <div id="ok_content_widget" style="border: 0; padding: 0; margin: 0 auto; max-width: 100%;"></div>
         </div>
     </div>

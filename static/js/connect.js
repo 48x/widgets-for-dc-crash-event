@@ -7,6 +7,9 @@ OK.CONNECT = OK.CONNECT || {
     insertGroupWidget: function(a, c, b) {
         this.insertWidget(a, "Group", "st.groupId=" + c, b, 250, 335);
     },
+    insertContentWidget: function(a, c, b) {
+        this.insertWidget(a, "Content", "st.content=" + c, b, 250, 335);
+    },
     insertShareWidget: function(c, f, d, g, e, b) {
         var a = "st.shareUrl=" + encodeURIComponent(f);
         if (typeof g !== "undefined") {

@@ -216,3 +216,13 @@ function getGroupWidget() {
     OK.CONNECT.hostName = widgetsHost;
     OK.CONNECT.insertGroupWidget("ok_group_widget", groupId, '{"width":' + widgetWidth + ', "height":' + widgetHeight + '}');
 }
+
+function getContentWidget() {
+    document.getElementById("ok_content_widget").innerHTML = "";
+    var contentUrl = document.getElementById("content-widget-content-url").value.trim();
+    var widgetHeight = document.getElementById("content-widget-height").value.trim();
+    var widgetWidth = document.getElementById("content-widget-width").value.trim();
+    var widgetsHost = document.getElementById("widgets-main-host").value.trim();
+    OK.CONNECT.hostName = widgetsHost;
+    OK.CONNECT.insertContentWidget("ok_content_widget", contentUrl, '{"width":' + widgetWidth + ', "height":' + widgetHeight + '}');
+}
