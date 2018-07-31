@@ -139,6 +139,42 @@ function renewLikeWidget() {
     OK.CONNECT.insertShareWidget("ok_shareWidget", urlToShare, "{width:150  ,height:50,st:'oval',sz:30,ck:1}");
 }
 
+function shareWithoutButton() {
+    var urlToShare = document.getElementById("share-url").value.trim();
+    var imageUrl = document.getElementById("share-image-url").value.trim();
+    var title = document.getElementById("share-title").value.trim();
+    var description = document.getElementById("share-description").value.trim();
+
+    var urlToOpen = document.getElementById("widgets-main-host").value.trim() +
+                    "offer" +
+                    "?url=" + urlToShare
+    ;
+
+    if (imageUrl) {
+        urlToOpen += "&imageUrl=" + imageUrl;
+    }
+
+    if (title) {
+        urlToOpen += "&title=" + title;
+    }
+
+    if (description) {
+        urlToOpen += "&description=" + description;
+    }
+
+    var width = document.getElementById("share-width").value.trim();
+    var height = document.getElementById("share-height").value.trim();
+    if (width === "" || height === "") {
+        window.open(urlToOpen);
+    } else {
+        window.open(
+            urlToOpen,
+            "share-window",
+            "width="+parseInt(width)+",height="+parseInt(height)
+        );
+    }
+}
+
 function oauth() {
     var appId = document.getElementById("app-id-oauth").value.trim();
     var scope = document.getElementById("oauth-permissions").value.trim();
