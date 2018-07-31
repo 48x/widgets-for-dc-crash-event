@@ -75,6 +75,35 @@ function buildSuggestUrl(appId, widgetType, secretKey) {
                     "&st.signature=" + CryptoJS.MD5(secretKey)
     ;
 
+    var targetUsers = document.getElementById("suggest-target").value.trim();
+    var autoSelect = document.getElementById("suggest-auto-select").value.trim();
+    var comment = document.getElementById("suggest-comment").value.trim();
+    var customArgs = document.getElementById("suggest-custom-args").value.trim();
+
+    if (targetUsers) {
+        urlToPost += "&st.target=" + targetUsers;
+    }
+
+    if (autoSelect) {
+        urlToPost += "&st.autosel=" + parseInt(autoSelect);
+    }
+
+    if (comment) {
+        urlToPost += "&st.comment=" + comment;
+    }
+
+    if (customArgs) {
+        urlToPost = "&st.custom_args=" + customArgs;
+    }
+
+    if (document.getElementById("suggest-st.popup").checked) {
+        urlToPost += "&st.popup=1"
+    }
+
+    if (document.getElementById("suggest-st.target_only").checked) {
+        urlToPost += "&st.target_only=1"
+    }
+
     console.log(urlToPost)
     return urlToPost;
 }
