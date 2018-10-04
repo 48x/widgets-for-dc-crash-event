@@ -21,8 +21,14 @@ function suggest() {
     var appId = document.getElementById("app-id-suggest").value.trim();
     var widgetType = document.getElementById("app-widget-type").value.trim();
     var appSecretKey = document.getElementById("app-secret-key-suggest").value.trim();
+    var sessionSecret = document.getElementById("session-secret").value.trim();
     var width = document.getElementById("suggest-width").value.trim();
     var height = document.getElementById("suggest-height").value.trim();
+
+    if (sessionSecret && session-secret.length > 0) {
+        appSecretKey = sessionSecret;
+    }
+
     if (width === "" || height === "") {
         window.open(buildSuggestUrl(appId, widgetType, appSecretKey));
     } else {
@@ -79,6 +85,7 @@ function buildSuggestUrl(appId, widgetType, secretKey) {
     var autoSelect = document.getElementById("suggest-auto-select").value.trim();
     var comment = document.getElementById("suggest-comment").value.trim();
     var customArgs = document.getElementById("suggest-custom-args").value.trim();
+    var accessToken = document.getElementById("access-token").value.trim();
 
     if (targetUsers) {
         urlToPost += "&st.target=" + targetUsers;
@@ -94,6 +101,10 @@ function buildSuggestUrl(appId, widgetType, secretKey) {
 
     if (customArgs) {
         urlToPost = "&st.custom_args=" + customArgs;
+    }
+
+    if (accessToken) {
+        urlToPost = "&st.access_token=" + customArgs;
     }
 
     if (document.getElementById("suggest-st.popup").checked) {
