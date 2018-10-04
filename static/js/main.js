@@ -27,7 +27,7 @@ function suggest() {
 
     if (accessToken && accessToken.length > 0) {
         appSecretKey = CryptoJS.MD5(accessToken+appSecretKey);
-        appSecretKey = appSecretKey.toLowerCase();
+        var appSecretKey = appSecretKey.toLowerCase();
     }
 
     if (width === "" || height === "") {
