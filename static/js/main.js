@@ -21,11 +21,11 @@ function suggest() {
     var appId = document.getElementById("app-id-suggest").value.trim();
     var widgetType = document.getElementById("app-widget-type").value.trim();
     var appSecretKey = document.getElementById("app-secret-key-suggest").value.trim();
-    var sessionSecret = document.getElementById("session-secret").value.trim();
+    var accessToken = document.getElementById("access-token").value.trim();
     var width = document.getElementById("suggest-width").value.trim();
     var height = document.getElementById("suggest-height").value.trim();
 
-    if (sessionSecret && sessionSecret.length > 0) {
+    if (accessToken && accessToken.length > 0) {
         appSecretKey = CryptoJS.MD5(accessToken+appSecretKey).toLowerCase();
     }
 
