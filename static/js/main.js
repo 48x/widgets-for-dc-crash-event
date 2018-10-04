@@ -104,7 +104,7 @@ function buildSuggestUrl(appId, widgetType, secretKey) {
     }
 
     if (accessToken) {
-        urlToPost += "&st.access_token=" + customArgs;
+        urlToPost += "&st.access_token=" + accessToken;
     }
 
     if (document.getElementById("suggest-st.popup").checked) {
