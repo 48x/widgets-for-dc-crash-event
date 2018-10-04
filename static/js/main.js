@@ -26,8 +26,7 @@ function suggest() {
     var height = document.getElementById("suggest-height").value.trim();
 
     if (accessToken && accessToken.length > 0) {
-        appSecretKey = CryptoJS.MD5(accessToken+appSecretKey);
-        var appSecretKey = appSecretKey.toLowerCase();
+        appSecretKey = CryptoJS.MD5(accessToken+appSecretKey).toString().toLowerCase();
     }
 
     if (width === "" || height === "") {
