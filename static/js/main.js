@@ -25,8 +25,8 @@ function suggest() {
     var width = document.getElementById("suggest-width").value.trim();
     var height = document.getElementById("suggest-height").value.trim();
 
-    if (sessionSecret && session-secret.length > 0) {
-        appSecretKey = sessionSecret;
+    if (sessionSecret && sessionSecret.length > 0) {
+        appSecretKey = CryptoJS.MD5(accessToken+appSecretKey).toLowerCase();
     }
 
     if (width === "" || height === "") {
