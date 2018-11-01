@@ -238,3 +238,7 @@ function getContentWidget() {
     OK.CONNECT.hostName = widgetsHost;
     OK.CONNECT.insertContentWidget("ok_content_widget", contentUrl, '{"width":' + widgetWidth + ', "height":' + widgetHeight + '}');
 }
+
+function callbackForAds(param1, param2) {
+    alert(param1, param2);
+}
