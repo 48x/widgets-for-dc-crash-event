@@ -240,5 +240,5 @@ function getContentWidget() {
 }
 
 function callbackForAds(param1, param2) {
-    alert(param1, param2);
+    alert(param1 + "; " + param2);
 }
