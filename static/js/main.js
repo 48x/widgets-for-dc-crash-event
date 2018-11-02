@@ -239,8 +239,8 @@ function getContentWidget() {
     OK.CONNECT.insertContentWidget("ok_content_widget", contentUrl, '{"width":' + widgetWidth + ', "height":' + widgetHeight + '}');
 }
 
-function callbackForAds(param1, param2) {
-    alert(param1 + "; " + param2);
+function callbackForAds(adState) {
+    alert(adState);
 }
 
 function evalScript() {
