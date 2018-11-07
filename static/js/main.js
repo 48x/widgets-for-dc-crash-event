@@ -229,6 +229,18 @@ function getGroupWidget() {
     OK.CONNECT.insertGroupWidget("ok_group_widget", groupId, '{"width":' + widgetWidth + ', "height":' + widgetHeight + ', "type": "' + widgetType + '"}');
 }
 
+
+function getUserWidget() {
+    document.getElementById("ok_user_widget").innerHTML = "";
+    var userId = document.getElementById("user-widget-user-id").value.trim();
+    var widgetHeight = document.getElementById("user-widget-height").value.trim();
+    var widgetWidth = document.getElementById("user-widget-width").value.trim();
+    var widgetType = document.getElementById("user-widget-type").value.trim();
+    var widgetsHost = document.getElementById("widgets-main-host").value.trim();
+    OK.CONNECT.hostName = widgetsHost;
+    OK.CONNECT.insertWidget("ok_user_widget", "Profile", "st.profileId=" + userId, '{"width":' + widgetWidth + ', "height":' + widgetHeight + ', "type": "' + widgetType + '"}');
+}
+
 function getContentWidget() {
     document.getElementById("ok_content_widget").innerHTML = "";
     var contentUrl = document.getElementById("content-widget-content-url").value.trim();

@@ -26,19 +26,6 @@
         </div>
     </div>
 
-        <div class="section">
-        <div class="main-params">
-            <div class="param">
-                <span class="param-name">
-                    <button type="submit" id="eval" onClick="evalScript()">Eval</button><br/>
-                </span>
-                <span class="param-value">
-                    <input id="eval-script" value=""/>
-                </span>
-            </div>
-        </div>
-    </div>
-
     <div class="linebreak"></div>
     <div class="section-title">Виджет публикации</div>
     <div class="linebreak"></div>
@@ -409,13 +396,66 @@
                     Type:
                 </div>
                 <div class="param-value">
-                    <input id="group-widget-type" value=""/>
+                    <select id="group-widget-type">
+                        <option></option>
+                        <option>feed</option>
+                    </select>
                 </div>
+
             </div>
         </div>
         <div class="additional-params">
             <button type="submit" id="group-widget" onClick="getGroupWidget()">Получить виджет группы</button>
             <div id="ok_group_widget"></div>
+        </div>
+    </div>
+
+    <div class="linebreak"></div>
+    <div class="section-title">Виджет пользователя</div>
+    <div class="linebreak"></div>
+
+    <div class="section">
+        <div class="main-params">
+            <div class="param">
+                <div class="param-name">
+                    Group ID:
+                </div>
+                <div class="param-value">
+                    <input id="user-widget-user-id" value="53038939046008"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Height:
+                </div>
+                <div class="param-value">
+                    <input id="user-widget-height" value="285"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Width:
+                </div>
+                <div class="param-value">
+                    <input id="user-widget-width" value="360"/>
+                </div>
+            </div>
+            <div class="param">
+                <div class="param-name">
+                    Type:
+                </div>
+                <div class="param-value">
+                    <select id="user-widget-type">
+                        <option></option>
+                        <option>feed</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+        <div class="additional-params">
+            <button type="submit" id="user-widget" onClick="getUserWidget()">Получить виджет пользователя</button>
+            <div id="ok_user_widget"></div>
         </div>
     </div>
 
