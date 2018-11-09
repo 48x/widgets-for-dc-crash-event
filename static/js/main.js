@@ -236,9 +236,10 @@ function getUserWidget() {
     var widgetHeight = document.getElementById("user-widget-height").value.trim();
     var widgetWidth = document.getElementById("user-widget-width").value.trim();
     var widgetType = document.getElementById("user-widget-type").value.trim();
+    var widgetAction = document.getElementById("user-widget-action").value.trim();
     var widgetsHost = document.getElementById("widgets-main-host").value.trim();
     OK.CONNECT.hostName = widgetsHost;
-    OK.CONNECT.insertWidget("ok_user_widget", "Profile", "st.profileId=" + userId, '{"width":' + widgetWidth + ', "height":' + widgetHeight + ', "type": "' + widgetType + '"}');
+    OK.CONNECT.insertWidget("ok_user_widget", "Profile", "st.profileId=" + userId, '{"width":' + widgetWidth + ', "height":' + widgetHeight + ', "type": "' + widgetType + '"' + ', "action": "' + widgetAction + '"}');
 }
 
 function getContentWidget() {
