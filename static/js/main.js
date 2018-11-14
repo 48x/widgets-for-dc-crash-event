@@ -248,8 +248,9 @@ function getContentWidget() {
     var widgetHeight = document.getElementById("content-widget-height").value.trim();
     var widgetWidth = document.getElementById("content-widget-width").value.trim();
     var widgetsHost = document.getElementById("widgets-main-host").value.trim();
+    var mode = document.getElementById("content-widget-mode").value.trim();
     OK.CONNECT.hostName = widgetsHost;
-    OK.CONNECT.insertContentWidget("ok_content_widget", contentUrl, '{"width":' + widgetWidth + ', "height":' + widgetHeight + '}');
+    OK.CONNECT.insertContentWidget("ok_content_widget", contentUrl, '{"width":' + widgetWidth + ', "height":' + widgetHeight + ', "mode":' + mode '}');
 }
 
 function callbackForAds(adState) {
