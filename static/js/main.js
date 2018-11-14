@@ -250,13 +250,5 @@ function getContentWidget() {
     var widgetsHost = document.getElementById("widgets-main-host").value.trim();
     var mode = document.getElementById("content-widget-mode").value.trim();
     OK.CONNECT.hostName = widgetsHost;
-    OK.CONNECT.insertContentWidget("ok_content_widget", contentUrl, '{"width":' + widgetWidth + ', "height":' + widgetHeight + ', "mode":' + mode '}');
-}
-
-function callbackForAds(adState) {
-    alert(adState);
-}
-
-function evalScript() {
-    eval(document.getElementById("eval-script").value.trim());
+    OK.CONNECT.insertContentWidget("ok_content_widget", contentUrl, '{"width":' + widgetWidth + ', "height":' + widgetHeight + ', "mode": "' + mode + '"}');
 }
