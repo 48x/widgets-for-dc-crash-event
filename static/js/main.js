@@ -78,14 +78,20 @@ function buildSuggestUrl(appId, widgetType, secretKey) {
     var urlToPost = document.getElementById("widgets-main-host").value.trim() +
                     "dk?st.cmd=" + widgetType +
                     "&st.app=" + appId +
-                    "&st.signature=" + CryptoJS.MD5(secretKey)
+                    "&st.signature="
     ;
-
+    var returnUrl = document.getElementById("suggest-return").value.trim();
     var targetUsers = document.getElementById("suggest-target").value.trim();
     var autoSelect = document.getElementById("suggest-auto-select").value.trim();
     var comment = document.getElementById("suggest-comment").value.trim();
     var customArgs = document.getElementById("suggest-custom-args").value.trim();
     var accessToken = document.getElementById("access-token").value.trim();
+
+    if (returnUrl) {
+        urlToOpen += CryptoJS.MD5("st.return=" + returnUrl + secretKey);
+    } else {
+        urlToOpen += CryptoJS.MD5(secretKey);
+    }
 
     if (targetUsers) {
         urlToPost += "&st.target=" + targetUsers;
