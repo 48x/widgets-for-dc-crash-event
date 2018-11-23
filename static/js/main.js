@@ -88,9 +88,9 @@ function buildSuggestUrl(appId, widgetType, secretKey) {
     var accessToken = document.getElementById("access-token").value.trim();
 
     if (returnUrl) {
-        urlToOpen += CryptoJS.MD5("st.return=" + returnUrl + secretKey);
+        urlToPost += CryptoJS.MD5("st.return=" + returnUrl + secretKey);
     } else {
-        urlToOpen += CryptoJS.MD5(secretKey);
+        urlToPost += CryptoJS.MD5(secretKey);
     }
 
     if (targetUsers) {
