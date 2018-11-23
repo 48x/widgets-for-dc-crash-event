@@ -77,8 +77,7 @@ function buildUrl(appId, attachment, secretKey, returnUrl, groupId) {
 function buildSuggestUrl(appId, widgetType, secretKey) {
     var urlToPost = document.getElementById("widgets-main-host").value.trim() +
                     "dk?st.cmd=" + widgetType +
-                    "&st.app=" + appId +
-                    "&st.signature="
+                    "&st.app=" + appId
     ;
     var returnUrl = document.getElementById("suggest-return").value.trim();
     var targetUsers = document.getElementById("suggest-target").value.trim();
@@ -88,9 +87,11 @@ function buildSuggestUrl(appId, widgetType, secretKey) {
     var accessToken = document.getElementById("access-token").value.trim();
 
     if (returnUrl) {
-        urlToPost += CryptoJS.MD5("st.return=" + returnUrl + secretKey);
+        urlToPost += "&st.return=" + returnUrl;
+        urlToPost += "&st.signature=" + CryptoJS.MD5("st.return=" + returnUrl + secretKey);
+
     } else {
-        urlToPost += CryptoJS.MD5(secretKey);
+        urlToPost += "&st.signature=" + CryptoJS.MD5(secretKey);
     }
 
     if (targetUsers) {
